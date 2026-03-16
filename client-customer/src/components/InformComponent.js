@@ -19,7 +19,8 @@ class Inform extends Component {
 						<Link to="/home" onClick={() => this.lnkLogoutClick()}>
 							Logout
 						</Link>{" "}
-						| <Link to="/myprofile">My profile</Link> | <Link to="">My orders</Link>
+						| <Link to="/myprofile">My profile</Link> | <Link to="/myorders">My orders</Link> | <Link to="/mycart">My cart</Link> have{" "}
+						<b>{this.context.mycart.length}</b> items
 					</div>
 				)}
 			</div>
@@ -28,6 +29,7 @@ class Inform extends Component {
 
 	lnkLogoutClick() {
 		this.context.setToken("");
+		this.context.setMycart([]);
 		this.context.setCustomer(null);
 	}
 }

@@ -1,38 +1,42 @@
-import React, { Component } from 'react';
-import MyContext from './MyContext';
+import React, { Component } from "react";
+import MyContext from "./MyContext";
 
 class MyProvider extends Component {
-  constructor(props) {
-    super(props);
+	constructor(props) {
+		super(props);
 
-    this.state = {
-      // global state
+		this.state = {
+			// global state
+			mycart: [],
+			token: "",
+			customer: null,
 
-      // variables
-      token: '',
-      customer: null,
+			// functions
+			setToken: this.setToken,
+			setCustomer: this.setCustomer,
+			setMycart: this.setMycart
+		};
+	}
 
-      // functions
-      setToken: this.setToken,
-      setCustomer: this.setCustomer
-    };
-  }
+	setToken = (value) => {
+		this.setState({ token: value });
+	};
 
-  setToken = (value) => {
-    this.setState({ token: value });
-  };
+	setCustomer = (value) => {
+		this.setState({ customer: value });
+	};
 
-  setCustomer = (value) => {
-    this.setState({ customer: value });
-  };
+	setMycart = (value) => {
+		this.setState({ mycart: value });
+	};
 
-  render() {
-    return (
-      <MyContext.Provider value={this.state}>
-        {this.props.children}
-      </MyContext.Provider>
-    );
-  }
+	render() {
+		return (
+			<MyContext.Provider value={this.state}>
+				{this.props.children}
+			</MyContext.Provider>
+		);
+	}
 }
 
 export default MyProvider;

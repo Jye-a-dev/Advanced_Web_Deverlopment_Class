@@ -4,6 +4,7 @@ const CategoryDAO = require("../models/CategoryDAO");
 const JwtUtil = require("../utils/JwtUtil");
 const AdminDAO = require("../models/AdminDAO");
 const ProductDAO = require("../models/ProductDAO");
+const OrderDAO = require("../models/OrderDAO");
 // LOGIN
 router.post("/login", async (req, res) => {
 	const { username, password } = req.body;
@@ -135,6 +136,18 @@ router.delete("/products/:id", JwtUtil.checkToken, async function (req, res) {
 	const _id = req.params.id;
 	const result = await ProductDAO.delete(_id);
 	res.json(result);
+});
+
+router.get("/orders", JwtUtil.checkToken, async function (req, res) {
+	const orders = await OrderDAO.selectAll();
+	res.json(orders);
+});
+
+router.put('/orders/status/:id', JwtUtil.checkToken, async function (req, res) {
+  const _id = req.params.id;
+  const newStatus = req.body.status;
+  const result = await OrderDAO.update(_id, newStatus);
+  res.json(result);
 });
 
 module.exports = router;

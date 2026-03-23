@@ -23,7 +23,7 @@ class Menu extends Component {
 						</li>
 
 						<li className="menu">
-							<Link to="">Order</Link>
+							<Link to="/admin/order">Order</Link>
 						</li>
 						<li className="menu">
 							<Link to="">Customer</Link>

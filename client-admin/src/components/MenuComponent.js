@@ -26,7 +26,7 @@ class Menu extends Component {
 							<Link to="/admin/order">Order</Link>
 						</li>
 						<li className="menu">
-							<Link to="">Customer</Link>
+							<Link to="/admin/customer">Customer</Link>
 						</li>
 					</ul>
 				</div>

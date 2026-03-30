@@ -5,6 +5,8 @@ const disableCSP = require("./utils/disableCSP");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+console.log("DB_SERVER:", process.env.DB_SERVER);
+
 app.use(bodyParser.json({ limit: "10mb" }));
 app.use(bodyParser.urlencoded({ extended: true, limit: "10mb" }));
 app.use(disableCSP);

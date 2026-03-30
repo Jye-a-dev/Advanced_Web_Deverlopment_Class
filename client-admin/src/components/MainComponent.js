@@ -5,8 +5,9 @@ import Home from "./HomeComponent";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Product from './ProductComponent';
 import Order from "./OrderComponent";
-
+import Customer from "./CustomerComponent";
 import Category from "./CategoryComponent";
+
 class Main extends Component {
 	static contextType = MyContext;
 
@@ -24,6 +25,7 @@ class Main extends Component {
 					<Route path="/admin/product" element={<Product />} />
 					<Route path="/admin/order" element={<Order />} />
 					<Route path="/admin/home" element={<Home/>}/>
+					<Route path='/admin/customer' element={<Customer />} />
 				</Routes>
 			</div>
 		);
